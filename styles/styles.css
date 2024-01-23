@@ -200,7 +200,12 @@ header {
     }
 
     .game-item {
+        font-size: 85px;
+    }
+
+    .transition-class {
         font-size: 65px;
+        transition: font-size 0.5s;
     }
 }
 
@@ -226,10 +231,6 @@ header {
     #x-statistic,
     #o-statistic {
         padding-right: 15px;
-    }
-
-    .game-item {
-        font-size: 65px;
     }
 }
 
@@ -269,6 +270,11 @@ header {
     }
 
     .game-item {
+        font-size: 90px;
+    }
+
+    .transition-class {
         font-size: 70px;
+        transition: font-size 0.5s;
     }
 }
