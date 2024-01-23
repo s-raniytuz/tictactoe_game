@@ -20,8 +20,8 @@ body {
 
 #game-wrapper {
     display: grid;
-    grid-template-rows: 125px 125px 125px;
-    grid-template-columns: 125px 125px 125px;
+    grid-template-rows: 8vw 8vw 8vw;
+    grid-template-columns: 8vw 8vw 8vw;
     background-color: #293241;
     border-radius: 15px;
 }
@@ -47,8 +47,8 @@ body {
 }
 
 #current-item {
-    width: 125px;
-    height: 125px;
+    width: 8vw;
+    height: 8vw;
     border: 3px solid #e0fbfc;
     border-radius: 15px;
     background-color: #293241;
@@ -56,13 +56,22 @@ body {
 
 #current-item,
 .game-item {
-    font-size: 90px;
+    font-size: 7vw;
     font-family: Dosis;
     font-weight: 800;
     color: #e0fbfc;
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+#current-item {
+    font-size: 6vw;
+}
+
+.transition-class {
+    font-size: 6vw;
+    transition: font-size 0.5s;
 }
 
 /* HEADER STYLING*/
@@ -85,7 +94,6 @@ header {
     background-color: #3d5a80;
     height: 75vh;
     width: 65%;
-    border-radius: 15px;
     display: flex;
 }
 
@@ -106,41 +114,149 @@ header {
 #current-info-wrapper {
     display: flex;
     align-items: center;
-    gap: 40px;
+    gap: 2.5vw;
 }
 
 #current-info-wrapper h2 {
     font-family: Dosis;
     color: #ee6c4d;
     background-color: #293241;
-    width: 175px;
-    height: 50px;
+    width: 11.5vw;
+    height: 3.5vw;
+    font-size: 1.5vw;
     text-align: center;
-    line-height: 45px;
+    line-height: 3.2vw;
     border-radius: 15px;
     border: 2px solid #e0fbfc;
 }
 
 #statistics-wrapper {
     display: flex;
-    gap: 77px;
+    gap: 5.2vw;
     justify-content: center;
 }
 
 #x-statistic,
 #o-statistic {
     background-color: #293241;
-    height: 50px;
+    height: 3.5vw;
     padding-left: 15px;
     padding-right: 18px;
-    padding-top: 8px;
+    line-height: 3.2vw;
     border: 2px solid #e0fbfc;
     border-radius: 15px;
     color: #ee6c4d;
     font-family: Dosis;
+    font-size: 1.5vw;
 }
 
 #x-span,
 #o-span {
     color: #e0fbfc;
+}
+
+@media only screen and (max-width: 850px) {
+    #main {
+        width: 80%;
+        height: auto;
+        flex-direction: column;
+        align-items: center;
+        gap: 5vw;
+    }
+    #game-wrapper {
+        grid-template-rows: 14vw 14vw 14vw;
+        grid-template-columns: 14vw 14vw 14vw;
+        margin-top: 5vw;
+    }
+
+    #main-column {
+        width: auto;
+    }
+
+    #menu-column {
+        width: auto;
+        flex-direction: row;
+        align-items: center;
+        margin-bottom: 2.5vw;
+        gap: 6vw;
+    }
+
+    #statistics-wrapper {
+        gap: 2vw;
+    }
+
+    #current-info-wrapper h2,
+    #x-statistic,
+    #o-statistic {
+        font-size: 2vw;
+        width: 14vw;
+        height: 4.5vw;
+        line-height: 4vw;
+    }
+
+    #x-statistic,
+    #o-statistic {
+        padding-left: 18px;
+    }
+}
+
+@media only screen and (max-width: 700px) {
+    #main {
+        gap: 7vw;
+    }
+
+    #game-wrapper {
+        grid-template-rows: 17vw 17vw 17vw;
+        grid-template-columns: 17vw 17vw 17vw;
+    }
+
+    #current-info-wrapper h2,
+    #x-statistic,
+    #o-statistic {
+        font-size: 2.5vw;
+        width: 18vw;
+        height: 5vw;
+        line-height: 4.5vw;
+    }
+
+    #x-statistic,
+    #o-statistic {
+        padding-right: 15px;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    #main {
+        height: 100vh;
+        width: 90%;
+        gap: 3.5vw;
+    }
+
+    #game-wrapper {
+        grid-template-rows: 125px 125px 125px;
+        grid-template-columns: 125px 125px 125px;
+    }
+
+    #menu-column {
+        flex-direction: column;
+        gap: 2vw;
+    }
+
+    #current-info-wrapper h2,
+    #x-statistic,
+    #o-statistic {
+        font-size: 20px;
+        width: 160px;
+        height: 35px;
+        line-height: 30px;
+    }
+
+    #x-statistic,
+    #o-statistic {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        padding: 0;
+    }
 }
