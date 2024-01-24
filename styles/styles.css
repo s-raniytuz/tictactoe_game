@@ -16,6 +16,10 @@ body {
     align-items: center;
 }
 
+.hidden {
+    display: none;
+}
+
 /* GRID STYLING */
 
 #game-wrapper {
@@ -72,6 +76,16 @@ body {
 .transition-class {
     font-size: 5vw;
     transition: font-size 0.5s;
+}
+
+.win-class {
+    color: #ee6c4d;
+}
+
+.lose-class {
+    font-size: 4vw;
+    transition: font-size 0.5s;
+    color: rgba(224, 251, 252, 0.25);
 }
 
 /* HEADER STYLING*/
@@ -153,6 +167,36 @@ header {
 #x-span,
 #o-span {
     color: #e0fbfc;
+}
+
+@keyframes lineAnimation {
+    from {
+        width: 1%;
+    }
+    to {
+        width: 100%;
+    }
+}
+
+#line-area {
+    width: 22vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+}
+
+#cross-line {
+    height: 4px;
+    width: 100%;
+    border-radius: 5px;
+    background-color: #e0fbfc;
+    animation-name: lineAnimation;
+    animation-duration: 1s;
+}
+
+.winRow1 {
+    margin: 4vw 0 0 1.7vw;
 }
 
 @media only screen and (max-width: 850px) {
