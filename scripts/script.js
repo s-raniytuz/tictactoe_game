@@ -2,6 +2,8 @@ const gameBoard = document.querySelector('#game-wrapper');
 const currentItem = document.querySelector('#current-item');
 const gameItems = Array.from(document.querySelectorAll('.game-item'));
 const crossLine = document.querySelector('#cross-line');
+const counterXItem = document.querySelector('#x-span');
+const counterOItem = document.querySelector('#o-span');
 
 let counterX = 0;
 let counterO = 0;
@@ -61,39 +63,40 @@ function checkGameStatus() {
         crossLine.classList.remove('hidden');
         crossLine.classList.add('winRow1');
         gameBoard.removeEventListener('click', clickEvent);
-        return true;
+        counterUpdate();
     } else if (allEqual(row2)) {
         itemTransform(row2, row1.concat(row3));
         crossLine.classList.remove('hidden');
         crossLine.classList.add('winRow2');
         gameBoard.removeEventListener('click', clickEvent);
-        return true;
+        counterUpdate();
     } else if (allEqual(row3)) {
         itemTransform(row3, row1.concat(row2));
         crossLine.classList.remove('hidden');
         crossLine.classList.add('winRow3');
         gameBoard.removeEventListener('click', clickEvent);
-        return true;
+        counterUpdate();
     } else if (allEqual(column1)) {
         itemTransform(column1, column2.concat(column3));
         crossLine.classList.remove('hidden');
         crossLine.parentElement.classList.add('rotate');
         crossLine.parentElement.classList.add('winColumn1');
         gameBoard.removeEventListener('click', clickEvent);
-        return true;
+        counterUpdate();
     } else if (allEqual(column2)) {
         itemTransform(column2, column1.concat(column3));
         crossLine.classList.remove('hidden');
         crossLine.parentElement.classList.add('rotate');
         crossLine.parentElement.classList.add('winColumn2');
         gameBoard.removeEventListener('click', clickEvent);
-        return true;
+        counterUpdate();
     } else if (allEqual(column3)) {
         itemTransform(column3, column1.concat(column2));
         crossLine.classList.remove('hidden');
         crossLine.parentElement.classList.add('rotate');
         crossLine.parentElement.classList.add('winColumn3');
         gameBoard.removeEventListener('click', clickEvent);
+        counterUpdate();
     } else if (allEqual(diagonalLeftRight)) {
         const arrLost = [];
         gameItems.forEach((item) => {
@@ -106,6 +109,7 @@ function checkGameStatus() {
         crossLine.parentElement.classList.add('rotate45');
         crossLine.parentElement.classList.add('winDiagonal');
         gameBoard.removeEventListener('click', clickEvent);
+        counterUpdate();
     } else if (allEqual(diagonalRightLeft)) {
         const arrLost = [];
         gameItems.forEach((item) => {
@@ -118,11 +122,46 @@ function checkGameStatus() {
         crossLine.parentElement.classList.add('rotate135');
         crossLine.parentElement.classList.add('winDiagonal');
         gameBoard.removeEventListener('click', clickEvent);
+        counterUpdate();
     } else {
         if (clickCounter === 9) {
             gameItems.forEach((item) => item.classList.add('lose-class'));
+            setTimeout(gameRestart, 2000);
         }
     }
+}
+
+function counterUpdate() {
+    if (currentItem.textContent === 'X') {
+        counterO++;
+    } else if (currentItem.textContent === 'O') {
+        counterX++;
+    }
+
+    counterOItem.textContent = counterO;
+    counterXItem.textContent = counterX;
+
+    setTimeout(gameRestart, 2000);
+}
+
+function gameRestart() {
+    gameItems.forEach((item) => {
+        item.textContent = '';
+        item.classList.remove(...item.classList);
+        item.classList.add('game-item');
+    });
+
+    crossLine.classList.remove(...crossLine.classList);
+    crossLine.classList.add('hidden');
+    crossLine.parentElement.classList.remove(
+        ...crossLine.parentElement.classList
+    );
+
+    clickCounter = 0;
+
+    currentItem.textContent = 'X';
+
+    gameBoard.addEventListener('click', clickEvent);
 }
 
 gameBoard.addEventListener('click', clickEvent);
