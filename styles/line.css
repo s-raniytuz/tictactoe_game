@@ -1,0 +1,67 @@
+@keyframes lineAnimation {
+    from {
+        width: 1%;
+    }
+    to {
+        width: 100%;
+    }
+}
+
+#line-area {
+    width: 22vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+}
+
+#cross-line {
+    height: 4px;
+    width: 100%;
+    border-radius: 5px;
+    background-color: #e0fbfc;
+    animation-name: lineAnimation;
+    animation-duration: 0.7s;
+}
+
+.rotate {
+    transform: rotate(90deg);
+}
+
+.rotate45 {
+    transform: rotate(45deg);
+    width: calc(sqrt(900) * 1vw) !important;
+}
+
+.rotate135 {
+    transform: rotate(135deg);
+    width: calc(sqrt(900) * 1vw) !important;
+}
+
+.winRow1 {
+    margin: 4vw 0 0 1.7vw;
+}
+
+.winRow2 {
+    margin: 12vw 0 0 1.7vw;
+}
+
+.winRow3 {
+    margin: 20vw 0 0 1.7vw;
+}
+
+.winColumn1 {
+    margin: 11.85vw 0 0 -6.999vw;
+}
+
+.winColumn2 {
+    margin: 11.85vw 0 0 1vw;
+}
+
+.winColumn3 {
+    margin: 11.85vw 0 0 9vw;
+}
+
+.winDiagonal {
+    margin: 11.85vw 0 0 -3vw;
+}
